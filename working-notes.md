@@ -87,8 +87,7 @@ All 8 pages built and deployed:
 ## Eddie's Practice Profile (from 2026-02-23 call)
 - **Special issuance cases:** ~1/week
 - **Regular AME exams:** 0-5/week (variable, "easy money")
-- **Competitor reference:** Ariano charges ~$1,200 for initial eval
-- **Eddie's edge:** Personal accessibility — he actually answers the phone
+- **Eddie's edge:** Personal accessibility — he actually answers the phone; can undercut market rates
 - **Free consult:** Keep but scope down to brief "here's what I need, here's the cost"
 - **Pricing model:** Charge for records review / go-no-go decision; then quote for full paperwork build
 - **Payment:** Prefers cash. Electronic payment (Zelle/credit card) gets 30% surcharge.
