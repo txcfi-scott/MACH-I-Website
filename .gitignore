@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Local Netlify folder
+.netlify/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Screenshots
+screenshot-*.png
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.local

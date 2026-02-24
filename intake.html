@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Intake Form | MACH I</title>
+  <meta name="description" content="MACH I patient intake form for aviation cardiology and FAA special issuance evaluation.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+</head>
+<body>
+  <a href="#main" class="skip-to-content">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main">
+
+    <!-- Page Hero -->
+    <section class="page-hero page-hero--services">
+      <div class="container">
+        <span class="section-label">Patient Intake</span>
+        <h1>Patient Intake Form</h1>
+        <p class="page-hero-subtitle">Please complete this form to help us prepare for your evaluation. All information is kept strictly confidential.</p>
+      </div>
+    </section>
+
+    <!-- Intake Form Section -->
+    <section class="bg-off-white">
+      <div class="container">
+        <div class="intake-intro">
+          <p>This form helps Dr. Davenport's team understand your medical history and aviation background before your evaluation. Please fill out all fields as completely as possible.</p>
+        </div>
+
+        <div class="intake-notice">
+          <strong>Privacy Notice:</strong> This form is transmitted securely via Netlify. For medical records and imaging files (which may be large), we will provide a separate HIPAA-compliant secure upload link after reviewing your intake information.
+        </div>
+
+        <div class="intake-form-wrapper">
+          <form name="intake" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="intake">
+            <p style="display:none">
+              <label>Don't fill this out: <input name="bot-field"></label>
+            </p>
+
+            <!-- Fieldset 1: Contact Information -->
+            <div class="fieldset">
+              <span class="fieldset-legend">Contact Information</span>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" name="email" required>
+                  <span class="form-error">Please enter a valid email address</span>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone *</label>
+                  <input type="tel" id="phone" name="phone" required>
+                  <span class="form-error">This field is required</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="dob">Date of Birth *</label>
+                  <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                  <label for="state">State of Residence</label>
+                  <input type="text" id="state" name="state">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Mailing Address</label>
+                <textarea id="address" name="address" rows="2"></textarea>
+              </div>
+            </div>
+
+            <!-- Fieldset 2: Aviation Background -->
+            <div class="fieldset">
+              <span class="fieldset-legend">Aviation Background</span>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="certificateType">Pilot Certificate Type *</label>
+                  <select id="certificateType" name="certificateType" required>
+                    <option value="">Select certificate type...</option>
+                    <option value="student">Student Pilot</option>
+                    <option value="sport">Sport Pilot</option>
+                    <option value="recreational">Recreational Pilot</option>
+                    <option value="private">Private Pilot</option>
+                    <option value="commercial">Commercial Pilot</option>
+                    <option value="atp">Airline Transport Pilot (ATP)</option>
+                    <option value="cfi">Flight Instructor</option>
+                    <option value="not-certificated">Not yet certificated</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="medicalClass">Class of Medical Needed *</label>
+                  <select id="medicalClass" name="medicalClass" required>
+                    <option value="">Select medical class...</option>
+                    <option value="first">1st Class</option>
+                    <option value="second">2nd Class</option>
+                    <option value="third">3rd Class</option>
+                    <option value="basicmed">BasicMed</option>
+                    <option value="not-sure">Not sure</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="medicalStatus">Current Medical Certificate Status *</label>
+                <select id="medicalStatus" name="medicalStatus" required>
+                  <option value="">Select status...</option>
+                  <option value="valid">Currently valid</option>
+                  <option value="expired">Expired</option>
+                  <option value="denied">Denied</option>
+                  <option value="deferred">Deferred</option>
+                  <option value="never-held">Never held</option>
+                  <option value="revoked">Revoked</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Fieldset 3: Medical Information -->
+            <div class="fieldset">
+              <span class="fieldset-legend">Medical Information</span>
+
+              <div class="form-group">
+                <label for="condition">Primary Cardiac Condition *</label>
+                <select id="condition" name="condition" required>
+                  <option value="">Select your condition...</option>
+                  <option value="cad-mi">Coronary Artery Disease / Heart Attack (MI)</option>
+                  <option value="cabg">Coronary Artery Bypass Grafting (CABG)</option>
+                  <option value="stent">Coronary Stenting / Angioplasty</option>
+                  <option value="valve-replacement">Cardiac Valve Replacement</option>
+                  <option value="valve-repair">Cardiac Valve Repair</option>
+                  <option value="afib">Atrial Fibrillation / Flutter</option>
+                  <option value="pacemaker">Cardiac Pacemaker</option>
+                  <option value="ventricular-arrhythmia">Ventricular Arrhythmia</option>
+                  <option value="aortic-aneurysm">Aortic Aneurysm</option>
+                  <option value="congenital">Congenital Heart Disease</option>
+                  <option value="other-cardiac">Other cardiac condition</option>
+                  <option value="pulmonary">Pulmonary condition</option>
+                  <option value="no-condition">No cardiac/pulmonary condition (other service)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="eventDescription">Brief Description of Event / Condition *</label>
+                <textarea id="eventDescription" name="eventDescription" rows="4" required placeholder="Please describe your cardiac event or condition, including approximate date of diagnosis or event..."></textarea>
+                <span class="form-error">This field is required</span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="eventDate">Date of Event / Diagnosis</label>
+                  <input type="date" id="eventDate" name="eventDate">
+                </div>
+                <div class="form-group">
+                  <label for="cardiologist">Current Cardiologist / Physician</label>
+                  <input type="text" id="cardiologist" name="cardiologist">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="medications">Current Medications</label>
+                <textarea id="medications" name="medications" rows="3" placeholder="List all current medications with dosages..."></textarea>
+              </div>
+            </div>
+
+            <!-- Fieldset 4: Your Goal -->
+            <div class="fieldset">
+              <span class="fieldset-legend">What Brings You to MACH I?</span>
+
+              <div class="form-group">
+                <label for="goal">Primary Goal *</label>
+                <select id="goal" name="goal" required>
+                  <option value="">Select your primary goal...</option>
+                  <option value="new-si">New Special Issuance application</option>
+                  <option value="si-renewal">Special Issuance renewal</option>
+                  <option value="second-opinion">Second opinion on denied/deferred medical</option>
+                  <option value="routine-ame">Routine AME exam (no cardiac history)</option>
+                  <option value="cardiology-consult">Aviation cardiology consultation</option>
+                  <option value="pulmonology-consult">Aviation pulmonology consultation</option>
+                  <option value="executive-health">Executive health screening</option>
+                  <option value="human-performance">Human performance optimization</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="additionalInfo">Additional Information</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Anything else you'd like us to know before your evaluation..."></textarea>
+              </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="intake-notice">
+              By submitting this form, you acknowledge that this is a preliminary intake only. A member of our team will review your information and contact you to discuss next steps, including scheduling and any additional records needed.
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-lg" style="width: 100%; margin-top: var(--space-4);">Submit Intake Form</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Happens Next Section -->
+    <section class="bg-white">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <h2 class="section-title">What Happens Next?</h2>
+        </div>
+        <div class="process-flow">
+          <div class="process-step">
+            <span class="process-step-number">1</span>
+            <h4>We Review Your Intake</h4>
+            <p>Dr. Davenport's team reviews your submission within 1-2 business days.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-number">2</span>
+            <h4>Initial Discussion</h4>
+            <p>We'll call you to discuss your case, answer questions, and assess candidacy.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-number">3</span>
+            <h4>Records Collection</h4>
+            <p>If you're a candidate, we'll send you a condition-specific checklist and a secure upload link for your medical records.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-number">4</span>
+            <h4>Evaluation Scheduled</h4>
+            <p>Once records are received and reviewed, we'll schedule your comprehensive evaluation ($1,200).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="bg-off-white">
+      <div class="container" style="text-align: center;">
+        <p>Have a quick question before filling out the intake form?</p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; margin-top: var(--space-4);">
+          <a href="contact.html" class="btn btn-primary btn-lg">Ask a Question</a>
+        </div>
+        <p style="margin-top: var(--space-4); color: var(--color-medium-gray); font-size: var(--text-sm);">Prefer to call? <a href="tel:+19376686974">(937) 668-6974</a> &mdash; Mon-Fri 8:00 AM - 5:00 PM EST</p>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/main.js?v=3"></script>
+</body>
+</html>

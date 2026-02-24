@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | MACH I — Aviation Cardiology, Dayton OH</title>
+  <meta name="description" content="Contact MACH I for aviation cardiology, FAA medical exams, and special issuance guidance. Call (937) 668-6974. Located in Dayton, OH — serving pilots nationwide.">
+  <meta property="og:title" content="Contact MACH I">
+  <meta property="og:description" content="Call (937) 668-6974 for aviation cardiology and FAA special issuance guidance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medicalaerospacecardiology.com/contact.html">
+  <link rel="canonical" href="https://medicalaerospacecardiology.com/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+</head>
+<body>
+  <a href="#main" class="skip-to-content">Skip to content</a>
+  <div id="site-header"></div>
+  <main id="main">
+
+    <!-- Page Hero -->
+    <section class="page-hero page-hero--contact">
+      <div class="container">
+        <div class="page-hero-content">
+          <p class="section-label">Get In Touch</p>
+          <h1>Contact MACH I</h1>
+          <p class="page-hero-subtitle">Have a question about your situation? Send us a message and we'll respond within one business day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form & Info Section -->
+    <section class="contact-section bg-white">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <h2>Send Us a Message</h2>
+            <p>Have a question or want to schedule a consultation? Fill out the form below and we'll respond within one business day.</p>
+
+            <form name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact">
+              <p style="display:none">
+                <label>Don't fill this out: <input name="bot-field"></label>
+              </p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" name="firstName" id="firstName" required>
+                  <span class="form-error">This field is required</span>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" name="lastName" id="lastName" required>
+                  <span class="form-error">This field is required</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" name="email" id="email" required>
+                  <span class="form-error">Please enter a valid email address</span>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" name="phone" id="phone">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="service">Service of Interest</label>
+                <select name="service" id="service">
+                  <option value="">Select a service...</option>
+                  <option>FAA Medical Examination</option>
+                  <option>Aviation Cardiology Consultation</option>
+                  <option>Aviation Pulmonology Consultation</option>
+                  <option>Special Issuance Evaluation</option>
+                  <option>Executive Health Screening</option>
+                  <option>Human Performance Optimization</option>
+                  <option>Speaking / Consulting</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="certificate">Pilot Certificate</label>
+                <select name="certificate" id="certificate">
+                  <option value="">Select your certificate...</option>
+                  <option>Student Pilot</option>
+                  <option>Private Pilot</option>
+                  <option>Commercial Pilot</option>
+                  <option>Airline Transport Pilot (ATP)</option>
+                  <option>Not a pilot</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea name="message" id="message" rows="5" required placeholder="Tell us how we can help..."></textarea>
+                <span class="form-error">This field is required</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Send Message</button>
+            </form>
+          </div>
+
+          <!-- Contact Info Sidebar -->
+          <div>
+            <div class="contact-info-card">
+              <h3>Contact Information</h3>
+
+              <div class="contact-info-item">
+                <h4>Phone</h4>
+                <p><a href="tel:+19376686974">(937) 668-6974</a></p>
+              </div>
+
+              <div class="contact-info-item">
+                <h4>Email</h4>
+                <p><a href="mailto:medicalaerospacecardiology@gmail.com">medicalaerospacecardiology@gmail.com</a></p>
+              </div>
+
+              <div class="contact-info-item">
+                <h4>Address</h4>
+                <p>7061 Corporate Way, Suite 109<br>Dayton, OH 45459</p>
+              </div>
+
+              <div class="contact-info-item">
+                <h4>Hours</h4>
+                <p>Monday - Friday<br>8:00 AM - 5:00 PM EST</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card contact-info-card--highlight">
+              <h3>Ready to Get Started?</h3>
+              <p style="color: rgba(255, 255, 255, 0.9);">If you already know you need an evaluation, skip ahead to our intake form. It captures the medical details Dr. Davenport's team needs to assess your case.</p>
+              <a href="intake.html" class="btn btn-gold" style="margin-top: var(--space-4); width: 100%; text-align: center;">Complete Intake Form</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="bg-off-white">
+      <div class="container">
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.5!2d-84.1494!3d39.6731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s7061+Corporate+Way+Suite+109+Dayton+OH+45459!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="MACH I Office Location"></iframe>
+        </div>
+        <div class="travel-info">
+          <h4>Patients Come From Across the Country</h4>
+          <p>While based in Dayton, Ohio, MACH I serves pilots from every state. Our unique expertise in aviation cardiology and FAA special issuance makes us a destination practice.</p>
+          <p>Nearby airports: Dayton International Airport (DAY), James M. Cox Dayton International Airport, Wright Brothers Airport (MGY) for general aviation.</p>
+          <p>Hotel accommodations available within minutes of our office for out-of-town patients.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner cta-banner--with-bg">
+      <div class="container cta-banner-content">
+        <h2>Ready to Move Forward?</h2>
+        <p>If you're ready to begin the evaluation process, our intake form captures everything Dr. Davenport's team needs to assess your case.</p>
+        <div class="cta-banner-actions">
+          <a href="intake.html" class="btn btn-gold btn-lg">Start Your Case</a>
+          <a href="special-issuance.html" class="btn btn-outline-white btn-lg">View Special Issuance Guide</a>
+        </div>
+        <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: rgba(255,255,255,0.6);">Prefer to call? <a href="tel:+19376686974" style="color: rgba(255,255,255,0.8);">(937) 668-6974</a></p>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/main.js?v=3"></script>
+</body>
+</html>
