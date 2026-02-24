@@ -306,6 +306,19 @@ section {
   text-decoration: none;
 }
 
+.nav-review-link {
+  color: var(--color-gold) !important;
+  font-weight: 600 !important;
+  background: rgba(201, 168, 76, 0.12);
+  padding: 4px 10px !important;
+  border-radius: 4px;
+  border-bottom: none !important;
+}
+
+.nav-review-link:hover {
+  background: rgba(201, 168, 76, 0.25) !important;
+}
+
 .nav-cta {
   white-space: nowrap;
 }

@@ -6,7 +6,7 @@
 - **Netlify Project ID:** 739ce002-1192-45ae-a5ed-9ba7088c2a12
 - **Deploy date:** 2026-02-12
 
-## Status: Phase 1 Complete + Major Content/CTA Update
+## Status: Phase 2 — Eddie Review In Progress (as of 2026-02-23)
 
 All 8 pages built and deployed:
 1. `index.html` — Authority-first homepage with hero, trust bar, credentials, services, CTA
@@ -28,36 +28,72 @@ All 8 pages built and deployed:
 - JSON-LD MedicalClinic schema, Open Graph meta, favicon
 - Security headers via netlify.toml (CSP, X-Frame-Options, etc.)
 
-## Next Steps (Phase 2: Launch — Target 1-2 weeks)
-- [ ] Schedule review session(s) with Dr. D to verify content accuracy
-- [ ] Record transcript of review discussion for iteration
-- [ ] Dr. D to provide professional headshot photos (both doctors)
-- [ ] Dr. D to verify all credentials, pricing, services accuracy
-- [ ] Dr. D to review condition card data (waiting periods, tests, timelines)
-- [ ] Collect 2-3 patient testimonials (first name, condition, outcome)
-- [ ] Replace Gmail with custom domain email
-- [ ] DNS migration from Wix to Netlify (medicalaerospacecardiology.com)
+## Next Steps (Phase 2: Launch — Eddie Review In Progress)
+- [x] Schedule review session(s) with Dr. D to verify content accuracy — **DONE 2026-02-23**
+- [x] Record transcript of review discussion for iteration — **DONE** (saved to `research/eddie-review-call-transcript.md`, analysis in `meeting-transcript-analysis.md`)
+- [ ] **Apply credential corrections from call:**
+  - NATO: "Prior Chair, current member" (was "Chairman")
+  - Cardiology: "invasive, non-interventional" (was "interventional" or similar)
+  - Keep "nuclear qualified"
+  - Dr. Young: Pulmonologist, Air Force Aeromedical Consult Service, active duty military, AME (military only), runs CPETs/PFTs, cannot do civilian AME exams
+- [ ] Dr. D to provide professional headshot photos (both doctors) — reminded, still pending
+- [ ] Dr. D reviewing all site content — will dictate corrections via audio/text and email to Scott
+- [ ] Dr. D to review condition card data (waiting periods, tests, timelines) — pending
+- [ ] Dr. D to review FAQ answers — pending
+- [ ] Collect 2-3 patient testimonials (first name, condition, outcome) — not discussed
+- [ ] **Eddie creating Netlify account** ($9/mo personal plan) — told to go ahead
+- [ ] **Eddie creating Fastmail account** (Family plan, $140/year) — told to go ahead
+- [ ] **Eddie choosing new domain name** — candidates: Mach One Cardiology, Flying Heart Doc, Cleared to Fly, Fly Mach One Med (current `medicalaerospacecardiology.com` too long)
+- [ ] DNS migration — Wix stays as redirect to new domain on Netlify
 - [ ] Set up Netlify Analytics
 - [ ] Test forms end-to-end (verify Netlify receives submissions)
 - [ ] Final polish based on review feedback
+- [ ] **Eddie sending Mac Studio specs** (~$2K model, unused)
 
 ## Next Steps (Phase 2.5: Launch Campaign)
-- [ ] Coordinate Mad Props Aero / Pat Brown YouTube interview timing
-- [ ] Website goes live on real domain BEFORE interview airs
-- [ ] Set up Eddie's Mac for AI workflow
+- [ ] Coordinate Mad Props Aero / Pat Brown / Jamie YouTube interview timing — they want Eddie on, topic: "you just had a heart attack, how to get back in the air"
+- [ ] Website goes live on real domain BEFORE interview airs — critical prerequisite
+- [ ] **Next session: Eddie's Mac Studio setup** — VPN (Tailscale), Claude install, security lockdown. Eddie must be in front of the machine.
+- [ ] Scott to create Claude package for Eddie's machine (so his Claude starts with full context)
 - [ ] Prepare interview talking points for Dr. D
+- [ ] **Submit Oshkosh EAA AirVenture speaking proposal** — Scott says not too late, huge exposure
+- [ ] **Sun 'n Fun** (Lakeland, April) — Eddie invited to attend with Scott's group for networking (not speaking)
+- [ ] **No scheduler on the site** for now — decided during call
 
 ## Next Steps (Phase 3: Patient Management)
 - [ ] Create patient-mgmt Claude Code project
-- [ ] Build patient record templates, pipeline, follow-up tracker
-- [ ] Set up HIPAA-compliant file sharing service
+- [ ] Build patient record templates, pipeline, follow-up tracker (similar to Scott's student management dashboard)
+- [ ] Set up HIPAA-compliant file sharing service — Claude can research best option
+- [ ] Automated patient follow-up for recurring medicals (e.g., first class every 4 months)
+- [ ] Inbound email triage via AI (DeepSeek for cheap initial sort, Claude for complex work)
+- [ ] Draft email responses (human-approved before sending)
 - [ ] Train Dr. D on workflow
 
 ## Next Steps (Phase 4: Marketing)
-- [ ] Reach out to Mad Props Aero (warm intro via Scott)
+- [ ] Reach out to Mad Props Aero (warm intro via Scott) — already in discussion, they want Eddie
+- [ ] After Pat Brown's channel, pitch bigger YouTube channels (some get 500K views/video)
 - [ ] Pitch 5-10 top podcast targets
 - [ ] Post to Facebook groups
 - [ ] Submit speaking proposals for 2026 conferences
+- [ ] **Add Milan keynote** to publications/speaking page once confirmed (Aerospace Society of Milan, end of May 2026)
+
+## Future Project: Sports Cardiology Site
+- Eddie plans to expand into sports cardiology — no sports cardiology practice in Dayton
+- Has CPET equipment already; Dr. Young handles pulmonary components
+- Meeting a board-certified sports cardiologist 2026-02-24
+- **Decision: Separate website** from aerospace cardiology (Scott's recommendation, Eddie agreed)
+- Fastmail can handle a second domain on the same plan
+
+## Eddie's Practice Profile (from 2026-02-23 call)
+- **Special issuance cases:** ~1/week
+- **Regular AME exams:** 0-5/week (variable, "easy money")
+- **Competitor reference:** Ariano charges ~$1,200 for initial eval
+- **Eddie's edge:** Personal accessibility — he actually answers the phone
+- **Free consult:** Keep but scope down to brief "here's what I need, here's the cost"
+- **Pricing model:** Charge for records review / go-no-go decision; then quote for full paperwork build
+- **Payment:** Prefers cash. Electronic payment (Zelle/credit card) gets 30% surcharge.
+- **Current domain:** `medicalaerospacecardiology.com` (through Wix, paid ~$600 for 3-5 years)
+- **Wix investment:** Already paid, will keep as redirect
 
 ## Research Files
 - `research/faa-special-issuance-requirements.md` — Condition-by-condition SI requirements
@@ -311,6 +347,18 @@ All saved to `/Users/scott/Claude/MACH-I-Website/research/screenshots/`:
 - **Deployed and QA'd:** Full visual/functional testing on desktop and mobile. All passing.
 - **Pat Brown / Mad Props Aero:** Scott met with Pat Brown (DPE, AOPA rep, houstondpe.com, Mad Props Aero YouTube). Discussing a YouTube interview with Dr. D on FAA medicals/cardiology as a launch vehicle. Want website live on real domain first.
 - **Eddie's Medical Report:** Scott asked Eddie to submit his FAA medical report and accept lower class if necessary.
+
+**2026-02-23 (Eddie Review Call + Transcript Analysis):**
+- Review meeting held via Zoom between Scott and Dr. Eddie Davenport
+- **Eddie likes the site** — "I really like the site. I think that's one way to just go live."
+- **Credential corrections given:** NATO role is "Prior Chair, current member" (not Chairman); cardiology subspecialty is "invasive, non-interventional" (not interventional); nuclear qualified confirmed
+- **Dr. Young clarified:** Pulmonologist at Air Force Aeromedical Consult Service, active duty military, AME (military only), runs CPETs/PFTs
+- **Decisions:** Keep free consult (scoped down); no scheduler; split sports cardiology into separate site; Netlify + Fastmail confirmed; Wix stays as redirect; new shorter domain needed
+- **Eddie's to-dos:** Review all site content (dictate corrections), create Netlify account, create Fastmail account, pick domain name, send photos/art, send Mac Studio specs
+- **New info:** Eddie invited to keynote at Aerospace Society of Milan (end of May 2026); planning sports cardiology expansion (meeting sports cardiologist 2026-02-24); Oshkosh speaking proposal still possible
+- **Next session:** Eddie in front of Mac Studio for VPN/Claude setup
+- Full transcript saved to `research/eddie-review-call-transcript.md`
+- Full analysis saved to `meeting-transcript-analysis.md`
 
 ## Known Issues
 - Scroll reveal animations use IntersectionObserver — won't trigger in headless browsers (works fine in real browsers)

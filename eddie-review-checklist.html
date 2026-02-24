@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meeting Checklist — Eddie Review</title>
+<style>
+  :root {
+    --navy: #1a2332;
+    --navy-light: #243044;
+    --gold: #c9a84c;
+    --gold-light: #d4ba6a;
+    --gold-faint: rgba(201, 168, 76, 0.08);
+    --text: #2c3e50;
+    --text-light: #5a6a7a;
+    --border: #e2e8f0;
+    --bg: #f8f9fb;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header {
+    background: var(--navy);
+    padding: 28px 0 24px;
+    border-bottom: 4px solid var(--gold);
+  }
+
+  header .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header h1 {
+    color: var(--white);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  header h1 span {
+    color: var(--gold);
+  }
+
+  header .site-link {
+    margin-top: 8px;
+  }
+
+  header .site-link a {
+    color: var(--gold-light);
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.9;
+    transition: opacity 0.15s;
+  }
+
+  header .site-link a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  .section {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .section-header {
+    background: var(--navy);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-header h2 {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  .section-header .badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin-left: auto;
+    min-width: 22px;
+    text-align: center;
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 8px 0;
+  }
+
+  .checklist li {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: background 0.12s;
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .checklist li:hover {
+    background: var(--gold-faint);
+  }
+
+  .checklist li.checked {
+    background: rgba(76, 175, 80, 0.04);
+  }
+
+  .checklist li.checked .item-label {
+    color: var(--text-light);
+    text-decoration: line-through;
+    text-decoration-color: #b0bec5;
+  }
+
+  .checklist input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid #cbd5e0;
+    border-radius: 4px;
+    margin-top: 1px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+  }
+
+  .checklist input[type="checkbox"]:hover {
+    border-color: var(--gold);
+  }
+
+  .checklist input[type="checkbox"]:checked {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .checklist input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 11px;
+    border: solid var(--white);
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .item-label {
+    font-size: 15px;
+    flex: 1;
+    transition: color 0.15s;
+  }
+
+  .item-label strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .item-label .detail {
+    color: var(--text-light);
+    font-size: 13.5px;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .item-label code {
+    background: #f1f5f9;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #475569;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .item-label a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .item-label a:hover {
+    text-decoration: underline;
+  }
+
+  .domain-section {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .domain-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+
+  .domain-table thead th {
+    background: var(--navy-light);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .domain-table thead th:first-child {
+    width: 40px;
+    text-align: center;
+  }
+
+  .domain-table tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .domain-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .domain-table tbody tr:hover {
+    background: var(--gold-faint);
+  }
+
+  .domain-table tbody td:first-child {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .domain-table tbody td:nth-child(2) {
+    font-weight: 600;
+    color: var(--navy);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 13.5px;
+  }
+
+  .domain-table tbody td:nth-child(3) {
+    color: var(--text-light);
+    font-size: 13.5px;
+  }
+
+  .domain-note {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text-light);
+    background: var(--gold-faint);
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .notes-section {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    margin-bottom: 24px;
+  }
+
+  .notes-section .section-header {
+    background: var(--navy-light);
+  }
+
+  .notes-section .notes-body {
+    padding: 16px 20px;
+  }
+
+  .notes-section textarea {
+    width: 100%;
+    min-height: 180px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.6;
+  }
+
+  .notes-section textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+  }
+
+  .progress-bar {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .progress-wrapper {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .progress-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 8px;
+    background: #e8ecf1;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  .reset-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .reset-btn:hover {
+    border-color: #e74c3c;
+    color: #e74c3c;
+  }
+
+  @media print {
+    header { border-bottom-width: 3px; }
+    .section { break-inside: avoid; }
+    .checklist input[type="checkbox"] { appearance: auto; -webkit-appearance: auto; }
+    .notes-section textarea { border: 1px solid #ccc; }
+    .reset-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Meeting Checklist — <span>Eddie Review</span></h1>
+    <div class="site-link">
+      <a href="https://mach-i-cardiology.netlify.app" target="_blank">https://mach-i-cardiology.netlify.app</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="progress-wrapper">
+    <span class="progress-text"><span id="progress-count">0</span> / <span id="progress-total">0</span></span>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <button class="reset-btn" onclick="resetAll()">Reset All</button>
+  </div>
+
+  <!-- CONTENT ACCURACY -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Content Accuracy</h2>
+      <span class="badge" data-section="content">0/6</span>
+    </div>
+    <ul class="checklist" data-section="content">
+      <li>
+        <input type="checkbox" id="c1">
+        <label class="item-label" for="c1">
+          <strong>Bio &amp; credentials</strong>
+          <span class="detail">Verify Dr. Davenport's titles, board certs, NATO award year, FAsMA class, publications count, "every USAF cardiac waiver guide since 2009" claim</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="c2">
+        <label class="item-label" for="c2">
+          <strong>Dr. Young's credentials</strong>
+          <span class="detail">Confirm D.O., triple board-certified, FAA Aerospace Pulmonary Consultant title</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="c3">
+        <label class="item-label" for="c3">
+          <strong>Service descriptions</strong>
+          <span class="detail">Do they accurately reflect what's offered?</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="c4">
+        <label class="item-label" for="c4">
+          <strong>Pricing</strong>
+          <span class="detail">$300 AME · $600 consults · $1,200 SI eval · $599 exec health · $2,000 human performance</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="c5">
+        <label class="item-label" for="c5">
+          <strong>Special Issuance condition cards</strong>
+          <span class="detail">Review the 9 cardiac conditions for medical accuracy — waiting periods, required tests, timelines, "strong case" factors</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="c6">
+        <label class="item-label" for="c6">
+          <strong>FAQ answers</strong>
+          <span class="detail">8 items on the SI page — need his sign-off</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CONTACT & LOGISTICS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Contact &amp; Logistics</h2>
+      <span class="badge" data-section="contact">0/4</span>
+    </div>
+    <ul class="checklist" data-section="contact">
+      <li>
+        <input type="checkbox" id="l1">
+        <label class="item-label" for="l1">
+          <strong>Phone number</strong>
+          <span class="detail"><code>(937) 668-6974</code> — correct?</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="l2">
+        <label class="item-label" for="l2">
+          <strong>Email</strong>
+          <span class="detail"><code>medicalaerospacecardiology@gmail.com</code> — correct? Is he receiving form submissions?</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="l3">
+        <label class="item-label" for="l3">
+          <strong>Address</strong>
+          <span class="detail">7061 Corporate Way, Suite 109, Dayton, OH 45459</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="l4">
+        <label class="item-label" for="l4">
+          <strong>Hours</strong>
+          <span class="detail">Mon–Fri 8am–5pm EST — accurate?</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ITEMS EDDIE NEEDS TO PROVIDE -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Items Eddie Needs to Provide</h2>
+      <span class="badge" data-section="provide">0/2</span>
+    </div>
+    <ul class="checklist" data-section="provide">
+      <li>
+        <input type="checkbox" id="p1">
+        <label class="item-label" for="p1">
+          <strong>Professional headshots</strong>
+          <span class="detail">Both Dr. Davenport and Dr. Young — currently showing initials only</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="p2">
+        <label class="item-label" for="p2">
+          <strong>Patient testimonials</strong>
+          <span class="detail">2–3 with first name, condition, and outcome</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ACCOUNTS & INFRASTRUCTURE -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Accounts &amp; Infrastructure</h2>
+      <span class="badge" data-section="accounts">0/3</span>
+    </div>
+    <ul class="checklist" data-section="accounts">
+      <li>
+        <input type="checkbox" id="a1">
+        <label class="item-label" for="a1">
+          <strong>Netlify account</strong>
+          <span class="detail">Transfer site ownership to Eddie's own Netlify account, or keep under Scott's management?</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="a2">
+        <label class="item-label" for="a2">
+          <strong>Fastmail account</strong>
+          <span class="detail">Set up professional email (e.g. info@[domain].com) via Fastmail for the practice</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="a3">
+        <label class="item-label" for="a3">
+          <strong>Domain registration</strong>
+          <span class="detail">Choose and register a new shorter domain (see candidates below)</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- LAUNCH DECISIONS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Launch Decisions</h2>
+      <span class="badge" data-section="launch">0/3</span>
+    </div>
+    <ul class="checklist" data-section="launch">
+      <li>
+        <input type="checkbox" id="d1">
+        <label class="item-label" for="d1">
+          <strong>Domain</strong>
+          <span class="detail">Ready to migrate <code>medicalaerospacecardiology.com</code> from Wix to Netlify?</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="d2">
+        <label class="item-label" for="d2">
+          <strong>Pat Brown / Mad Props Aero</strong>
+          <span class="detail">Timeline for YouTube interview? Site needs to be on real domain before it airs</span>
+        </label>
+      </li>
+      <li>
+        <input type="checkbox" id="d3">
+        <label class="item-label" for="d3">
+          <strong>Any new services or changes before going live?</strong>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- DOMAIN NAME CANDIDATES -->
+  <div class="domain-section">
+    <div class="section-header">
+      <h2>Domain Name Candidates</h2>
+    </div>
+    <table class="domain-table">
+      <thead>
+        <tr><th>#</th><th>Domain</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>flymach.com</td><td>Short, punchy, aviation + brand in 7 chars</td></tr>
+        <tr><td>2</td><td>mach1cardio.com</td><td>Brand name + specialty. Clear and professional</td></tr>
+        <tr><td>3</td><td>mach1med.com</td><td>Even shorter. MACH-1 + medicine</td></tr>
+        <tr><td>4</td><td>machimed.com</td><td>8 chars. "MACH-I" + "med" reads naturally</td></tr>
+        <tr><td>5</td><td>flyingheartdoc.com</td><td>Memorable, tells the whole story</td></tr>
+        <tr><td>6</td><td>mach1cardiology.com</td><td>Full spelling, still way shorter than current</td></tr>
+        <tr><td>7</td><td>clearedtofly.com</td><td>ATC phraseology every pilot knows</td></tr>
+        <tr><td>8</td><td>flyagain.com</td><td>Speaks to the patient's goal. Could be a tagline</td></tr>
+        <tr><td>9</td><td>pilotcardio.com</td><td>SEO-friendly, clear about audience + specialty</td></tr>
+        <tr><td>10</td><td>mach1heart.com</td><td>Brand + heart. Warm and approachable</td></tr>
+      </tbody>
+    </table>
+    <div class="domain-note">
+      aviationcardiology.com is taken but expires Aug 2026 — worth watching. All .com domains above ~$10-15/year.
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes-section">
+    <div class="section-header">
+      <h2>Meeting Notes</h2>
+    </div>
+    <div class="notes-body">
+      <textarea id="meeting-notes" placeholder="Type meeting notes here..."></textarea>
+    </div>
+  </div>
+</main>
+
+<script>
+  const STORAGE_KEY = 'eddie-review-checklist';
+
+  function loadState() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch { return {}; }
+  }
+
+  function saveState() {
+    const state = {};
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      state[cb.id] = cb.checked;
+    });
+    state._notes = document.getElementById('meeting-notes').value;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('input[type="checkbox"]');
+    const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+    document.getElementById('progress-count').textContent = checked.length;
+    document.getElementById('progress-total').textContent = all.length;
+    document.getElementById('progress-fill').style.width = all.length ? (checked.length / all.length * 100) + '%' : '0%';
+
+    // Update section badges
+    document.querySelectorAll('.checklist').forEach(list => {
+      const section = list.dataset.section;
+      const total = list.querySelectorAll('input[type="checkbox"]').length;
+      const done = list.querySelectorAll('input[type="checkbox"]:checked').length;
+      const badge = document.querySelector(`.badge[data-section="${section}"]`);
+      if (badge) badge.textContent = `${done}/${total}`;
+    });
+
+    // Update li classes
+    all.forEach(cb => {
+      cb.closest('li').classList.toggle('checked', cb.checked);
+    });
+  }
+
+  function resetAll() {
+    if (!confirm('Reset all checkboxes and notes?')) return;
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    document.getElementById('meeting-notes').value = '';
+    saveState();
+    updateProgress();
+  }
+
+  // Init
+  const state = loadState();
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    if (state[cb.id]) cb.checked = true;
+    cb.addEventListener('change', () => { saveState(); updateProgress(); });
+  });
+  if (state._notes) document.getElementById('meeting-notes').value = state._notes;
+  document.getElementById('meeting-notes').addEventListener('input', saveState);
+  updateProgress();
+</script>
+</body>
+</html>
