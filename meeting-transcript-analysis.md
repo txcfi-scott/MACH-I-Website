@@ -49,7 +49,7 @@
 
 ## 2. Key Decisions Made
 
-1. **Keep the free consultation** but shrink its scope — it becomes a brief "here's what I need, here's what it costs" call, not a full hour. Eddie's personal touch (answering the phone) is a competitive differentiator vs. Ariano.
+1. **Keep the free consultation** but shrink its scope — it becomes a brief "here's what I need, here's what it costs" call, not a full hour. Eddie's personal touch (answering the phone) is a key competitive differentiator.
 
 2. **No scheduler on the site** for now — too risky with unfiltered inbound. Forms + email follow-up is the workflow.
 
@@ -124,11 +124,11 @@ These were given verbally during the call and need to be applied to the site:
 ### Free Consultation
 - Scott asked whether to keep the free consult. Scott (the developer, relaying his own recommendation) said **keep it, but shrink the scope**.
 - Make it a brief call: "here's what I need, here's what it costs."
-- Eddie's personal accessibility (actually answering the phone) is his competitive edge vs. Ariano and others.
+- Eddie's personal accessibility (actually answering the phone) is his strongest competitive edge in the market.
 
 ### Initial Evaluation Pricing
 - Scott recommended **charging for the records review / go-no-go decision** — it's considerable work, and if the answer is "no-go," there's no downstream revenue.
-- Referenced **Ariano charges ~$1,200** for the initial evaluation.
+- Market research suggests **~$1,200** is a reasonable initial evaluation fee for comprehensive records review.
 - Scott indicated that's "probably reasonable if you send a whole boatload of stuff."
 - After the eval, Eddie generates a quote for the full paperwork build. Exam is additional (~$1,000 or whatever).
 
@@ -245,10 +245,10 @@ These were given verbally during the call and need to be applied to the site:
 - 0-5 regular AME exams per week (highly variable)
 - This is relevant for pricing the AI infrastructure — he doesn't have enough volume yet to justify a full-time admin, but AI automation could bridge the gap.
 
-### Ariano Reference
-- Dr. Ariano (competitor) charges **~$1,200** for initial evaluation.
-- Ariano's office is described as impersonal — "You'd never get that from Ariano."
-- Eddie's competitive advantage is personal accessibility.
+### Competitive Positioning
+- Industry standard for initial evaluation is **~$1,200**.
+- Many practices are impersonal and difficult to reach — "You'd never get that experience from most offices."
+- Eddie's competitive advantage is personal accessibility and direct availability.
 
 ### Eddie's Existing Wix Investment
 - Paid **~$600 for Wix for 3-5 years**.
