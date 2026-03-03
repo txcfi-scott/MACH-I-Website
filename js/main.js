@@ -33,7 +33,6 @@
             '<li><a href="special-issuance.html">Special Issuance</a></li>' +
             '<li><a href="publications.html">Publications</a></li>' +
             '<li><a href="contact.html">Contact</a></li>' +
-            '<li><a href="eddie-review-checklist.html" class="nav-review-link">Eddie Review</a></li>' +
           '</ul>' +
           '<a href="intake.html" class="btn btn-gold btn-sm nav-cta">Get Started</a>' +
         '</nav>' +
@@ -84,7 +83,6 @@
             '<ul>' +
               '<li><a href="services.html#aviation">AME Exam</a></li>' +
               '<li><a href="services.html#cardiology">Cardiology</a></li>' +
-              '<li><a href="services.html#pulmonary">Pulmonology</a></li>' +
               '<li><a href="special-issuance.html">Special Issuance</a></li>' +
               '<li><a href="services.html#performance">Executive Health</a></li>' +
             '</ul>' +
