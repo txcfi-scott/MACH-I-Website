@@ -242,17 +242,25 @@ section {
 
 .logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-1);
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .logo:hover {
   text-decoration: none;
+  opacity: 0.9;
 }
 
+.logo-img {
+  display: block;
+  height: 45px;
+  width: auto;
+  /* White silhouette treatment for navy header background */
+  filter: brightness(0) invert(1);
+}
+
+/* Legacy text logo styles (kept for fallback) */
 .logo-mark {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -1833,6 +1841,21 @@ textarea {
   letter-spacing: 0.15em;
   display: block;
   margin-bottom: var(--space-3);
+}
+
+.footer-logo-link {
+  display: block;
+  margin-bottom: var(--space-3);
+  text-decoration: none;
+}
+
+.footer-logo-img {
+  display: block;
+  width: 160px;
+  height: auto;
+  /* Invert the dark elements to white for footer readability on navy background */
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 
 .footer-tagline {

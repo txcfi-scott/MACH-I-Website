@@ -22,8 +22,7 @@
     el.innerHTML = '<header class="site-header" role="banner">' +
       '<div class="container header-inner">' +
         '<a href="index.html" class="logo" aria-label="MACH I Home">' +
-          '<span class="logo-mark">MACH I</span>' +
-          '<span class="logo-tagline">Medical Aerospace Cardiology &amp; Human Performance Institute</span>' +
+          '<img src="img/mach-i-logo-small.png" alt="MACH I — Medical Aerospace Cardiology &amp; Human Performance Institute" class="logo-img" width="91" height="45">' +
         '</a>' +
         '<nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">' +
           '<ul class="nav-links">' +
@@ -58,7 +57,7 @@
         '<div class="footer-grid">' +
 
           '<div class="footer-brand">' +
-            '<span class="footer-logo">MACH I</span>' +
+            '<a href="index.html" class="footer-logo-link"><img src="img/mach-i-logo-med.png" alt="MACH I" class="footer-logo-img" width="160" height="78"></a>' +
             '<p class="footer-tagline">Medical Aerospace Cardiology &amp; Human Performance Institute</p>' +
             '<address class="footer-address">' +
               '7061 Corporate Way, Suite 109<br>' +
