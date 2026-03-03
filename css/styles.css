@@ -3148,6 +3148,15 @@ li {
   }
 }
 
+/* Dr. headshot image */
+.dr-headshot {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-gold);
+}
+
 /* Print styles */
 @media print {
   .site-header,
