@@ -1,85 +1,56 @@
-# Working Notes — Dr. D Mac Studio Setup
+## Checkpoint — 2026-03-03
 
-## Project Status: Pre-Session 1
+**Branch:** main (all revision changes merged and pushed)
+**Last action:** Elon completed final project review — sprint graded A, recommendation: SHIP
+**Next step:** Verify Netlify deploy, send dr-d-review.html to Dr. D for sign-off
+**Blockers:** None
+**Running services:** None
 
-## Overview
-Setting up Dr. D's Mac Studio so he can maintain his MACH-I website via Claude Code, with remote access for Scott.
+---
 
-## Phases
-1. **Remote Access** — Tailscale + SSH + Screen Sharing (Session 1 with Dr. D, ~30 min)
-2. **Software Installation** — Homebrew, Node, Python, Git, Claude Code, Netlify CLI (Session 2, Scott via SSH)
-3. **Accounts & Services** — Netlify, domain, Fastmail, Wix transition (Session 2 with Dr. D, Screen Sharing)
-4. **Website Dev Environment** — GitHub, repo clone, Netlify link, CLAUDE.md (Session 3)
-5. **Training & Handoff** — Walk Dr. D through Claude Code workflow, quick reference guide (Session 3)
+# Working Notes — MACH-I Website Revision Sprint
 
-## Session 1 Checklist (Remote Access — ~30 min call)
-- [ ] Dr. D downloads Tailscale from tailscale.com
-- [ ] Install + sign in to Scott's Tailnet
-- [ ] Enable Remote Login (SSH) in System Settings → General → Sharing
-- [ ] Enable Screen Sharing in System Settings → General → Sharing
-- [ ] Turn on FileVault encryption
-- [ ] Turn on Firewall (block all incoming except Tailscale)
-- [ ] Enable auto-updates
-- [ ] Confirm Mac Studio on ethernet, set to never sleep
-- [ ] Verify: Scott SSHs in over Tailscale
-- [ ] Verify: Scott Screen Shares over Tailscale
-- [ ] Verify: Dr. D Screen Shares from MacBook to Studio
+## Project Status: COMPLETE — READY FOR CLIENT REVIEW
 
-## Session 2 Checklist (Software + Accounts — ~1.5 hrs Screen Sharing)
-### Scott via SSH:
-- [ ] Install Homebrew
-- [ ] `brew install node@22 python@3 git gh`
-- [ ] `npm install -g @anthropic-ai/claude-code`
-- [ ] `npm install -g netlify-cli`
+## Sprint Summary
+9-phase revision sprint implementing all of Dr. D's feedback from "Web Site changes.docx". All phases executed, all acceptance criteria met, all verification checks passed.
 
-### With Dr. D via Screen Sharing:
-- [ ] Dr. D creates Netlify account ($9/mo Starter)
-- [ ] Scott transfers mach-i-cardiology site to Dr. D's team
-- [ ] `netlify login` on Dr. D's machine
-- [ ] Dr. D creates GitHub account (or signs in)
-- [ ] `gh auth login`
-- [ ] Dr. D picks domain name from candidate list
-- [ ] Register domain (Namecheap or similar)
-- [ ] Configure DNS A record → Netlify
-- [ ] Configure custom domain in Netlify dashboard
-- [ ] Dr. D creates Fastmail account (Family plan ~$140/yr)
-- [ ] Add domain to Fastmail
-- [ ] Configure MX records
-- [ ] Set up aliases: info@, eddie@, intake@
-- [ ] Create app-specific password, store in Keychain
+### What Was Done
+1. **Removed Dr. Young and all pulmonary content** across all pages (preserved in HTML comments for future)
+2. **Updated home page** — credentials, messaging, NATO role fix, "thousands" not "hundreds"
+3. **Rewrote about page bio** with full CV highlights, added headshot
+4. **Major services page revamp** — executive cardio eval, free consultation banner, speaking engagements
+5. **Added CVG/CMH airports** to special issuance FAQ and contact page
+6. **Site-wide consistency pass** — NATO title, orphaned links, CSS cleanup
+7. **Full UI/UX review** at desktop/tablet/mobile viewports
+8. **Fixed P2 issues** (gold callout box), cleaned orphaned CSS
+9. **Created dr-d-review.html** — integrated review page with change summary and 13-item checklist
 
-## Session 3 Checklist (Website Handoff + Training — ~1 hr Screen Sharing)
-- [ ] `git clone` repo to ~/Sites/mach-i
-- [ ] `cd ~/Sites/mach-i && netlify link`
-- [ ] Dr. D subscribes to Claude Pro ($20/mo)
-- [ ] `claude login` — walk through auth
-- [ ] Walk Dr. D through a real edit via Claude Code
-- [ ] Practice: edit → commit → deploy cycle
-- [ ] Review quick reference guide together
-- [ ] Set up Wix 301 redirect to new domain
-- [ ] Remove "Dr. D Review" nav link and checklist page
-- [ ] Print/bookmark quick reference guide
+### Commits (8 revision commits)
+```
+e467cee  Add Dr. Davenport headshot for about page
+7936965  Remove Dr. Young and all pulmonary references per client feedback
+b72c5aa  Update home page content per Dr. D feedback — credentials, messaging, NATO role
+e0a44fb  Enhance Dr. D about page bio with CV highlights, headshot, and credential updates
+69f00fa  Update special issuance FAQ and contact page — airports, travel info, hours
+8948d03  Revamp services page — executive cardio eval, speaking engagements, consultation updates
+1c861ad  Site-wide consistency pass — verify all feedback changes, fix orphaned refs
+cda8713  Add Dr. D review page with change summary and checklist
+8c6a6da  Fix UI issues found in post-revision review
+```
 
-## Verification Checklist
-- [ ] Scott can SSH to Studio over Tailscale
-- [ ] Scott can Screen Share to Studio over Tailscale
-- [ ] Dr. D can Screen Share from MacBook to Studio
-- [ ] `claude` runs in website project directory
-- [ ] Dr. D makes a real site edit via Claude Code
-- [ ] `netlify deploy --prod --dir=.` succeeds
-- [ ] `git push` succeeds
-- [ ] Email arrives at eddie@[newdomain] via Fastmail
-- [ ] Old Wix domain redirects to new site
-- [ ] Dr. D has quick reference guide printed/bookmarked
+### Final Review
+`build-monitor/reports/final-review.md` — comprehensive review with checklist, grep verification, risk assessment, and sprint grade (A).
 
-## Decisions
-- OpenClaw, CRM, email automation are a **separate follow-on project**
-- Keep Wix site as redirect (preserves SEO/Google ranking)
+### Open Items for Future Work
+- Verify Netlify auto-deploy succeeded and live site reflects all changes
+- Test contact and intake form submissions on live site
+- Contact page hours: using 8-5 default; revisit if Dr. D prefers evening/Saturday hours
+- Logo photo (`feedback/We made LOGO on DOOR of OFFICE.PNG`) unused — may need for future branding
+- Pulmonary services ready to re-enable when Dr. Young joins (HTML comments preserved)
+- New email setup (separate project — Mac Studio sessions)
+- Encrypted inbox for medical records (separate project)
+- Testimonials system (future feature)
 
-## Open Questions
-- Which domain name will Dr. D pick?
-- Does Dr. D already have a GitHub account?
-- Namecheap vs Squarespace for domain registration?
-
-## Next Step
-Schedule Session 1 call with Dr. D
+## Previous State (preserved)
+The Mac Studio setup plan (Sessions 1-3) remains valid and is tracked in `setup/` directory. That work is independent of this revision sprint.
