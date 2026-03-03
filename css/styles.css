@@ -218,6 +218,25 @@ section {
    5. HEADER & NAVIGATION
    ============================================================ */
 
+/* Logo Banner — full-color logo strip above the nav */
+.logo-banner {
+  background: #ffffff;
+  padding: 1rem 0;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo-banner a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.logo-banner-img {
+  height: 70px;
+  width: auto;
+  display: inline-block;
+}
+
 .site-header {
   background-color: var(--color-navy);
   height: 80px;
@@ -351,6 +370,12 @@ section {
 }
 
 /* Responsive Navigation */
+@media (max-width: 767px) {
+  .logo-banner-img {
+    height: 50px;
+  }
+}
+
 @media (max-width: 1023px) {
   .mobile-menu-toggle {
     display: flex;

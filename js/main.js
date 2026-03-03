@@ -19,29 +19,34 @@
     var el = document.getElementById('site-header');
     if (!el) return;
 
-    el.innerHTML = '<header class="site-header" role="banner">' +
-      '<div class="container header-inner">' +
-        '<a href="index.html" class="logo" aria-label="MACH I Home">' +
-          '<img src="img/mach-i-logo-small.png" alt="MACH I — Medical Aerospace Cardiology &amp; Human Performance Institute" class="logo-img" width="91" height="45">' +
-        '</a>' +
-        '<nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">' +
-          '<ul class="nav-links">' +
-            '<li><a href="index.html">Home</a></li>' +
-            '<li><a href="about.html">About</a></li>' +
-            '<li><a href="services.html">Services</a></li>' +
-            '<li><a href="special-issuance.html">Special Issuance</a></li>' +
-            '<li><a href="publications.html">Publications</a></li>' +
-            '<li><a href="contact.html">Contact</a></li>' +
-          '</ul>' +
-          '<a href="intake.html" class="btn btn-gold btn-sm nav-cta">Get Started</a>' +
-        '</nav>' +
-        '<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">' +
-          '<span class="hamburger-line"></span>' +
-          '<span class="hamburger-line"></span>' +
-          '<span class="hamburger-line"></span>' +
-        '</button>' +
+    el.innerHTML =
+      '<div class="logo-banner">' +
+        '<div class="container">' +
+          '<a href="index.html" aria-label="MACH I Home">' +
+            '<img src="img/mach-i-logo.png" alt="MACH I — Medical Aerospace Cardiology &amp; Human Performance Institute" class="logo-banner-img">' +
+          '</a>' +
+        '</div>' +
       '</div>' +
-    '</header>';
+      '<header class="site-header" role="banner">' +
+        '<div class="container header-inner">' +
+          '<nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">' +
+            '<ul class="nav-links">' +
+              '<li><a href="index.html">Home</a></li>' +
+              '<li><a href="about.html">About</a></li>' +
+              '<li><a href="services.html">Services</a></li>' +
+              '<li><a href="special-issuance.html">Special Issuance</a></li>' +
+              '<li><a href="publications.html">Publications</a></li>' +
+              '<li><a href="contact.html">Contact</a></li>' +
+            '</ul>' +
+            '<a href="intake.html" class="btn btn-gold btn-sm nav-cta">Get Started</a>' +
+          '</nav>' +
+          '<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">' +
+            '<span class="hamburger-line"></span>' +
+            '<span class="hamburger-line"></span>' +
+            '<span class="hamburger-line"></span>' +
+          '</button>' +
+        '</div>' +
+      '</header>';
   }
 
   // ============================================================
