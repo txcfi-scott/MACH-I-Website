@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Changes — Dr. D Review | MACH I</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Review page internal styles ── */
+    .review-body {
+      background: var(--color-off-white);
+      padding: 40px 0 80px;
+    }
+
+    .review-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Progress bar */
+    .progress-wrapper {
+      background: var(--color-white);
+      border-radius: 10px;
+      border: 1px solid var(--color-light-gray);
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .progress-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-navy);
+      white-space: nowrap;
+      font-family: var(--font-body);
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background: var(--color-light-gray);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-gold-hover));
+      border-radius: 4px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    .reset-btn {
+      background: none;
+      border: 1px solid var(--color-light-gray);
+      color: var(--color-medium-gray);
+      font-size: 12px;
+      font-family: var(--font-body);
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .reset-btn:hover {
+      border-color: var(--color-error);
+      color: var(--color-error);
+    }
+
+    /* Section cards */
+    .review-card {
+      background: var(--color-white);
+      border-radius: 10px;
+      border: 1px solid var(--color-light-gray);
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .review-card-header {
+      background: var(--color-navy);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .review-card-header h2 {
+      color: var(--color-white);
+      font-size: 16px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      letter-spacing: 0.2px;
+      margin: 0;
+    }
+
+    .review-card-header .card-badge {
+      background: var(--color-gold);
+      color: var(--color-navy);
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-body);
+      padding: 2px 9px;
+      border-radius: 10px;
+      margin-left: auto;
+      min-width: 22px;
+      text-align: center;
+    }
+
+    .review-card-body {
+      padding: 20px;
+    }
+
+    /* Changes section — page groups */
+    .page-group {
+      margin-bottom: 24px;
+    }
+
+    .page-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .page-group-title {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--color-gold);
+      background: rgba(200, 169, 81, 0.08);
+      border-left: 3px solid var(--color-gold);
+      padding: 6px 12px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 10px;
+    }
+
+    .changes-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .changes-list li {
+      padding: 8px 12px 8px 0;
+      border-bottom: 1px solid var(--color-light-gray);
+      font-size: 14.5px;
+      font-family: var(--font-body);
+      color: var(--color-dark-gray);
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .changes-list li:last-child {
+      border-bottom: none;
+    }
+
+    .changes-list li::before {
+      content: '–';
+      color: var(--color-gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0px;
+    }
+
+    .changes-list strong {
+      color: var(--color-navy);
+    }
+
+    /* Checklist section */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .checklist li {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--color-light-gray);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: background 0.12s;
+    }
+
+    .checklist li:last-child {
+      border-bottom: none;
+    }
+
+    .checklist li:hover {
+      background: rgba(200, 169, 81, 0.05);
+    }
+
+    .checklist li.checked {
+      background: rgba(45, 143, 94, 0.04);
+    }
+
+    .checklist li.checked .item-label {
+      color: var(--color-medium-gray);
+      text-decoration: line-through;
+      text-decoration-color: #b0bec5;
+    }
+
+    .checklist input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid #cbd5e0;
+      border-radius: 4px;
+      margin-top: 2px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s;
+    }
+
+    .checklist input[type="checkbox"]:hover {
+      border-color: var(--color-gold);
+    }
+
+    .checklist input[type="checkbox"]:checked {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+
+    .checklist input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 1px;
+      width: 6px;
+      height: 11px;
+      border: solid var(--color-white);
+      border-width: 0 2.5px 2.5px 0;
+      transform: rotate(45deg);
+    }
+
+    .item-label {
+      font-size: 14.5px;
+      font-family: var(--font-body);
+      flex: 1;
+      transition: color 0.15s;
+      color: var(--color-dark-gray);
+      line-height: 1.55;
+    }
+
+    .item-label strong {
+      color: var(--color-navy);
+      font-weight: 600;
+    }
+
+    .item-label .detail {
+      color: var(--color-medium-gray);
+      font-size: 13.5px;
+      display: block;
+      margin-top: 3px;
+      line-height: 1.5;
+    }
+
+    /* What's Next section */
+    .next-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .next-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-light-gray);
+      font-size: 14.5px;
+      font-family: var(--font-body);
+      color: var(--color-dark-gray);
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .next-list li:last-child {
+      border-bottom: none;
+    }
+
+    .next-list .next-icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .next-icon.pending {
+      background: rgba(200, 169, 81, 0.15);
+      color: var(--color-gold);
+    }
+
+    .next-icon.future {
+      background: rgba(107, 123, 141, 0.12);
+      color: var(--color-medium-gray);
+    }
+
+    .next-list strong {
+      color: var(--color-navy);
+    }
+
+    /* Footer note */
+    .review-footer-note {
+      text-align: center;
+      font-size: 13px;
+      font-family: var(--font-body);
+      color: var(--color-medium-gray);
+      padding-top: 8px;
+      border-top: 1px solid var(--color-light-gray);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-to-content">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-deep-blue) 100%); padding: 64px 0 56px; border-bottom: 4px solid var(--color-gold);">
+      <div class="container">
+        <span class="section-label" style="color: var(--color-gold); font-size: 13px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; display: block; margin-bottom: 12px;">Internal Review — Not Public</span>
+        <h1 style="color: var(--color-white); font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 12px;">Changes Summary &amp; Review Checklist</h1>
+        <p style="color: rgba(255,255,255,0.75); font-family: var(--font-body); font-size: 1.05rem; max-width: 560px;">Everything updated based on your feedback &mdash; March 2026</p>
+      </div>
+    </section>
+
+    <!-- Review body -->
+    <div class="review-body">
+      <div class="review-container">
+
+        <!-- Progress bar -->
+        <div class="progress-wrapper">
+          <span class="progress-text"><span id="progress-count">0</span> / <span id="progress-total">0</span> items reviewed</span>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          <button class="reset-btn" onclick="resetAll()">Reset All</button>
+        </div>
+
+        <!-- ── SECTION 1: CHANGES MADE ── -->
+        <div class="review-card">
+          <div class="review-card-header">
+            <h2>Section 1 &mdash; Changes Made</h2>
+          </div>
+          <div class="review-card-body">
+
+            <div class="page-group">
+              <div class="page-group-title">Home Page</div>
+              <ul class="changes-list">
+                <li>Removed "because Dr. D literally wrote it" &rarr; now says "teaches most AME courses and refresher courses for the FAA"</li>
+                <li>"Peak Performance" broadened beyond pilots to executives and anyone seeking peak health</li>
+                <li>Added <strong>Internal Medicine board certification</strong> under Clinical Excellence</li>
+                <li>Added <strong>IAASM induction (2018)</strong> under Professional Recognition</li>
+                <li>Fixed NATO title to <strong>"Former Deputy Chairman &amp; Chairman"</strong> with 10 papers / 8 countries</li>
+                <li>Changed "hundreds" to <strong>"thousands"</strong></li>
+              </ul>
+            </div>
+
+            <div class="page-group">
+              <div class="page-group-title">About Page</div>
+              <ul class="changes-list">
+                <li>Removed Dr. Young &mdash; page is now <strong>solo Dr. Davenport</strong></li>
+                <li>Added professional headshot (placeholder &mdash; need higher-res original)</li>
+                <li><strong>Complete bio rewrite</strong> with CV highlights: board certified IM &amp; Cardiology, FACC, FAsMA, IAASM, 100+ publications, 2 textbooks, 8+ countries / 4 continents, Afghanistan deployment, Colonel (ret) USAF, 10,000+ procedures, only FAA cardiovascular consultant also consulting for military / NATO / NASA, every USAF waiver guide since 2009</li>
+                <li>Fixed NATO: <strong>Deputy Chairman then Chairman</strong>, all 10 <em>Heart</em> Series papers, 8 countries</li>
+              </ul>
+            </div>
+
+            <div class="page-group">
+              <div class="page-group-title">Services Page</div>
+              <ul class="changes-list">
+                <li><strong>Free initial consultation banner</strong> added for ALL services</li>
+                <li>Removed all pulmonary services (saved in code comments for future)</li>
+                <li>Toned down FAA claim: <strong>"one of ~10 FAA consultants &mdash; only one also consulting for military, NATO, and NASA"</strong></li>
+                <li>New <strong>Executive Cardiovascular Evaluation</strong> section replacing old Human Performance cards &mdash; comparable to Mayo / Cleveland / Harvard, testing list (ECG, echo, body comp, lipids/A1c, formal cardiopulmonary exercise testing with gas exchange), 4-hour assessment, same-day results, "most comparable programs charge over $10,000"</li>
+                <li>Speaking &amp; Consulting updated with <strong>6 upcoming engagements</strong></li>
+              </ul>
+            </div>
+
+            <div class="page-group">
+              <div class="page-group-title">Special Issuance Page</div>
+              <ul class="changes-list">
+                <li>"hundreds" &rarr; <strong>"thousands"</strong></li>
+                <li><strong>CVG airport info added</strong> to "Do I have to come to Dayton?" FAQ</li>
+              </ul>
+            </div>
+
+            <div class="page-group">
+              <div class="page-group-title">Contact Page</div>
+              <ul class="changes-list">
+                <li>Added <strong>CVG (&lt;50 mi) and CMH (~70 mi)</strong> airports</li>
+                <li>Added <strong>"Virtual consultations available by appointment"</strong></li>
+                <li>Kept 8–5 Mon–Fri hours</li>
+                <li>Removed pulmonary from dropdown</li>
+              </ul>
+            </div>
+
+            <div class="page-group">
+              <div class="page-group-title">Site-Wide</div>
+              <ul class="changes-list">
+                <li>Removed Dr. Young from all pages, meta tags, nav, footer</li>
+                <li>Removed all pulmonary references (saved in code comments for future)</li>
+                <li>Removed Eddie Review from navigation</li>
+                <li>Updated schema.org structured data</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── SECTION 2: ITEMS FOR DR. D TO REVIEW ── -->
+        <div class="review-card">
+          <div class="review-card-header">
+            <h2>Section 2 &mdash; Items for Dr. D to Review</h2>
+            <span class="card-badge" id="checklist-badge">0/13</span>
+          </div>
+          <ul class="checklist" id="review-checklist">
+            <li>
+              <input type="checkbox" id="r1">
+              <label class="item-label" for="r1">
+                <strong>Headshot photo</strong>
+                <span class="detail">The photo sent was very small (120&times;160px). We upscaled it, but need the original high-res photo for best results.</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r2">
+              <label class="item-label" for="r2">
+                <strong>About page bio</strong>
+                <span class="detail">Please read the new bio. Does it accurately represent your background?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r3">
+              <label class="item-label" for="r3">
+                <strong>Executive Cardiovascular Evaluation</strong>
+                <span class="detail">Is the testing list accurate? Is "most places charge over $10,000" appropriate? Should we list pricing?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r4">
+              <label class="item-label" for="r4">
+                <strong>Free consultation offer</strong>
+                <span class="detail">"Every service begins with a free initial consultation" — correct for all services?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r5">
+              <label class="item-label" for="r5">
+                <strong>Speaking engagements</strong>
+                <span class="detail">6 upcoming events listed. Are the dates and locations correct?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r6">
+              <label class="item-label" for="r6">
+                <strong>CVG airport description</strong>
+                <span class="detail">Does the text capture what you wanted?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r7">
+              <label class="item-label" for="r7">
+                <strong>Office hours</strong>
+                <span class="detail">Kept 8–5 virtual availability. Should we change this?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r8">
+              <label class="item-label" for="r8">
+                <strong>NATO role</strong>
+                <span class="detail">Changed to "Deputy Chairman and then Chairman." Is that accurate?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r9">
+              <label class="item-label" for="r9">
+                <strong>"Thousands" of pilots</strong>
+                <span class="detail">Is "thousands" the right number?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r10">
+              <label class="item-label" for="r10">
+                <strong>Office logo</strong>
+                <span class="detail">Photo of logo on door received. Do you have a digital logo file? Should we use it on the site?</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r11">
+              <label class="item-label" for="r11">
+                <strong>Email address</strong>
+                <span class="detail">When you have the new non-Gmail email, let us know to update the site.</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r12">
+              <label class="item-label" for="r12">
+                <strong>Encrypted inbox</strong>
+                <span class="detail">Separate project for secure medical records &mdash; to be scoped when ready.</span>
+              </label>
+            </li>
+            <li>
+              <input type="checkbox" id="r13">
+              <label class="item-label" for="r13">
+                <strong>Testimonials</strong>
+                <span class="detail">Ready to set up when you want. Just send 2–3 with first name, condition, and outcome.</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ── SECTION 3: WHAT'S NEXT ── -->
+        <div class="review-card">
+          <div class="review-card-header">
+            <h2>Section 3 &mdash; What's Next</h2>
+          </div>
+          <div class="review-card-body">
+            <ul class="next-list">
+              <li>
+                <span class="next-icon pending">&#9702;</span>
+                <span><strong>Netlify account</strong> &mdash; Dr. D to create at netlify.com ($9/mo personal plan). Scott will transfer the site.</span>
+              </li>
+              <li>
+                <span class="next-icon pending">&#9702;</span>
+                <span><strong>Domain decision</strong> &mdash; Pick a final domain. Current medicalaerospacecardiology.com is a mouthful &mdash; shorter options discussed.</span>
+              </li>
+              <li>
+                <span class="next-icon pending">&#9702;</span>
+                <span><strong>Email setup</strong> &mdash; Fastmail (or equivalent) once domain is chosen. Gmail to be retired from the site.</span>
+              </li>
+              <li>
+                <span class="next-icon future">&#183;</span>
+                <span><strong>Pulmonary services</strong> &mdash; Held in code comments. Ready to re-enable when Dr. Young joins.</span>
+              </li>
+              <li>
+                <span class="next-icon future">&#183;</span>
+                <span><strong>Testimonials</strong> &mdash; Send patient quotes when ready and we'll add a section.</span>
+              </li>
+              <li>
+                <span class="next-icon future">&#183;</span>
+                <span><strong>Encrypted inbox</strong> &mdash; Separate project for secure medical records intake. Scoped separately.</span>
+              </li>
+              <li>
+                <span class="next-icon future">&#183;</span>
+                <span><strong>Pat Brown / Mad Props Aero interview</strong> &mdash; Site must be on real domain before it airs.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer note -->
+        <p class="review-footer-note">Prepared by the MACH-I web team &mdash; March 2026</p>
+
+      </div>
+    </div>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/main.js?v=3"></script>
+  <script>
+    (function () {
+      var STORAGE_KEY = 'dr-d-review-march2026';
+
+      function loadState() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+        catch (e) { return {}; }
+      }
+
+      function saveState() {
+        var state = {};
+        document.querySelectorAll('#review-checklist input[type="checkbox"]').forEach(function (cb) {
+          state[cb.id] = cb.checked;
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function updateProgress() {
+        var all = document.querySelectorAll('#review-checklist input[type="checkbox"]');
+        var checked = document.querySelectorAll('#review-checklist input[type="checkbox"]:checked');
+        var total = all.length;
+        var done = checked.length;
+
+        document.getElementById('progress-count').textContent = done;
+        document.getElementById('progress-total').textContent = total;
+        document.getElementById('progress-fill').style.width = total ? (done / total * 100) + '%' : '0%';
+        document.getElementById('checklist-badge').textContent = done + '/' + total;
+
+        all.forEach(function (cb) {
+          cb.closest('li').classList.toggle('checked', cb.checked);
+        });
+      }
+
+      window.resetAll = function () {
+        if (!confirm('Reset all checkboxes?')) return;
+        document.querySelectorAll('#review-checklist input[type="checkbox"]').forEach(function (cb) {
+          cb.checked = false;
+        });
+        saveState();
+        updateProgress();
+      };
+
+      // Init
+      var state = loadState();
+      document.querySelectorAll('#review-checklist input[type="checkbox"]').forEach(function (cb) {
+        if (state[cb.id]) cb.checked = true;
+        cb.addEventListener('change', function () { saveState(); updateProgress(); });
+      });
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
