@@ -1,0 +1,25 @@
+{
+  "date": "",
+  "generated_at": "",
+  "appointments_today": {
+    "count": 0,
+    "list": []
+  },
+  "new_leads": {
+    "since_yesterday": 0,
+    "names": []
+  },
+  "follow_ups_due_this_week": {
+    "count": 0,
+    "list": []
+  },
+  "pending_uploads": {
+    "count": 0,
+    "list": []
+  },
+  "overdue_follow_ups": {
+    "count": 0,
+    "list": []
+  },
+  "summary": ""
+}

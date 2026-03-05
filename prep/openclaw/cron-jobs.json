@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "mach1-daily-briefing",
+      "agentId": "mach1",
+      "name": "Daily Morning Briefing",
+      "description": "Compile and deliver Dr. D's morning practice summary",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Good morning. Compile today's daily briefing: check today's appointments, count new leads since yesterday, review pending follow-ups due this week, check for overdue follow-ups, and check pending secure uploads. Write the summary to daily-status.json and deliver it to me."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      }
+    },
+    {
+      "id": "mach1-followup-check",
+      "agentId": "mach1",
+      "name": "Follow-up Queue Review",
+      "description": "Check for patients due for follow-up and draft recall emails",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1,3,5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Review all patients with next_followup dates within the next 7 days. For any due this week, draft appropriate recall emails to the outbox. Update follow-up-queue.json. Report what you drafted."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      }
+    },
+    {
+      "id": "mach1-eod-summary",
+      "agentId": "mach1",
+      "name": "End of Day Summary",
+      "description": "Quick summary of today's activity and tomorrow's schedule",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 17 * * 1-5",
+        "tz": "America/New_York"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "End of day. Summarize today: how many appointments were completed, any no-shows, new leads received, emails drafted. Then preview tomorrow's schedule. Keep it brief."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      }
+    }
+  ]
+}

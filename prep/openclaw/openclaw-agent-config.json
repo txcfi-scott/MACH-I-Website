@@ -1,0 +1,27 @@
+{
+  "_comment": "Agent registration block for Dr. D's openclaw.json. Model uses OpenAI (gpt-4o) via Dr. D's OpenAI OAuth subscription — this is the model provider configured in his OpenClaw instance.",
+
+  "agent": {
+    "id": "mach1",
+    "workspace": "{{OPENCLAW_HOME}}/workspace-mach1",
+    "model": "openai/gpt-4o",
+    "identity": {
+      "name": "Mach 1 Front Desk",
+      "emoji": "✈️"
+    },
+    "tools": {
+      "allow": ["read", "write", "edit", "web_fetch"],
+      "deny": ["exec", "browser", "apply_patch"]
+    }
+  },
+
+  "binding": {
+    "agentId": "mach1",
+    "match": {
+      "channel": "telegram",
+      "accountId": "default"
+    }
+  },
+
+  "notes": "Model uses OpenAI (gpt-4o) via Dr. D's OpenAI subscription. web_fetch enabled for Google Calendar API reads. exec and browser denied for security. Telegram binding assumes Dr. D will interact via Telegram — update channel/accountId as needed."
+}
