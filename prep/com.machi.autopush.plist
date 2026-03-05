@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	macOS LaunchAgent Configuration for MACH-I Auto-Push
+	=====================================================
+
+	This plist file configures macOS launchd to run an automatic commit and push
+	script every hour. This acts as a safety net to ensure Dr. D's work on his
+	Mac Studio is automatically backed up to GitHub.
+
+	Installation: Copy this file to ~/Library/LaunchAgents/com.machi.autopush.plist
+
+	Loading the agent:
+	  launchctl load ~/Library/LaunchAgents/com.machi.autopush.plist
+
+	Checking status:
+	  launchctl list | grep com.machi.autopush
+
+	Viewing logs:
+	  tail -f ~/Library/Logs/machi-autopush.log
+	-->
+
+	<!-- Unique identifier for this launchd job -->
+	<key>Label</key>
+	<string>com.machi.autopush</string>
+
+	<!-- The command to execute: run the auto-push shell script -->
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>/Users/scott/Scripts/machi-autopush.sh</string>
+	</array>
+
+	<!-- Run every 3600 seconds (1 hour) -->
+	<key>StartInterval</key>
+	<integer>3600</integer>
+
+	<!-- Start this job when the plist is loaded (user login) -->
+	<key>RunAtLoad</key>
+	<true/>
+
+	<!-- Redirect standard output to a log file -->
+	<key>StandardOutPath</key>
+	<string>/Users/scott/Library/Logs/machi-autopush.log</string>
+
+	<!-- Redirect standard error to the same log file -->
+	<key>StandardErrorPath</key>
+	<string>/Users/scott/Library/Logs/machi-autopush.log</string>
+
+	<!-- Keep the job running; restart if it crashes unexpectedly -->
+	<key>KeepAlive</key>
+	<true/>
+
+	<!-- Set working directory to home for safety -->
+	<key>WorkingDirectory</key>
+	<string>/Users/scott</string>
+
+</dict>
+</plist>

@@ -1,0 +1,26 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Environment and credentials - NEVER commit these
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+credentials.json
+secrets.*
+
+# Claude Code internal files
+.claude/

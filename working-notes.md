@@ -1,3 +1,18 @@
+## Checkpoint — 2026-03-03 (Logo integration)
+
+**Branch:** main
+**Last action:** Added real MACH-I logo to header and footer, deployed to Netlify
+**Next step:** QA the live site — check logo renders correctly on nav and footer
+**Blockers:** None
+
+Logo assets created:
+- `img/mach-i-logo.png` — 320x157px, transparent bg (general use)
+- `img/mach-i-logo-small.png` — 91x45px for nav header
+- `img/mach-i-logo-med.png` — 160x78px for footer
+Both header and footer logos use `filter: brightness(0) invert(1)` for white silhouette on navy background.
+
+---
+
 ## Checkpoint — 2026-03-03
 
 **Branch:** main (all revision changes merged and pushed)
@@ -54,3 +69,81 @@ cda8713  Add Dr. D review page with change summary and checklist
 
 ## Previous State (preserved)
 The Mac Studio setup plan (Sessions 1-3) remains valid and is tracked in `setup/` directory. That work is independent of this revision sprint.
+
+---
+
+## Checkpoint — 2026-03-03 10:32:28
+
+**Branch:** main
+**Uncommitted changes:** M working-notes.md
+**Session work:**
+- Completed full Dr. D feedback revision sprint (9 phases + final review)
+- Removed Dr. Young and all pulmonary content site-wide
+- Updated home page credentials, messaging, NATO role
+- Rewrote about page bio with CV highlights, added upscaled headshot
+- Major services page revamp — Executive Cardiovascular Evaluation, free consultation banner, speaking engagements
+- Added CVG/CMH airports to special issuance FAQ and contact page
+- Site-wide consistency pass, UI/UX review, final fixes
+- Created dr-d-review.html — interactive review page with 13-item checklist for Dr. D
+- Processed and integrated MACH-I logo (heart+wings) — full-color banner above nav + white silhouette in footer
+- All pushed to GitHub and deployed to https://mach-i-cardiology.netlify.app
+- Elon final review: SHIP — Grade A
+- Team retrospective completed, memory files updated
+
+**Next step:** Send Dr. D the review page link (https://mach-i-cardiology.netlify.app/dr-d-review.html) for his sign-off on 13 items. Key ask: high-res headshot photo.
+**Blockers:** Need Dr. D's review/sign-off. Need original high-res headshot. Netlify auto-deploy not wired up (using manual `netlify deploy --prod --dir=.`).
+**Notes:** Contact hours kept as 8-5 Mon-Fri virtual availability (Dr. D's default preference). Logo on office door photo processed to transparent PNG. Pulmonary content preserved in HTML comments for future re-addition. Sprint retro lessons saved to agents/memory/shared.md and pepper.md.
+
+---
+
+## 2026-03-05 — Tech Stack Scoping for Dr. D's Practice
+
+### What Was Done
+- Reviewed existing HIPAA file sharing research (research/hipaa-file-sharing.md)
+- Scoped complete tech stack for Dr. D's medical practice:
+  - Google Workspace (already purchased) for email + calendar
+  - OpenClaw (self-hosted, Docker) for CRM/automation with OpenAI OAuth
+  - Patient Gain ($99/mo) for HIPAA-compliant medical records transfer
+  - Claude Code for website self-service editing
+  - GitHub for version control + remote safety net (auto-push via launchd)
+  - Tailscale for remote support access
+  - Netlify auto-deploy from GitHub
+- Created comprehensive meeting runbook: research/dr-d-tech-stack-setup.md (861 lines, 12 phases, ~6 hour meeting)
+- Created prep/ directory with:
+  - CLAUDE.md guardrails for Dr. D's website project
+  - launchd auto-push plist + shell script + installer
+  - .gitignore files for website and OpenClaw repos
+  - Installer download checklist with URLs
+  - Draft email to Dr. D requesting pre-meeting info
+
+### Key Decisions
+- Google Workspace instead of Fastmail (Dr. D already purchased it)
+- OpenAI OAuth for OpenClaw (not Anthropic)
+- Keep HIPAA compliance confined to Patient Gain file transfers — no PHI in email/calendar
+- Everything pushes to GitHub automatically so Scott can help remotely
+- Tailscale node sharing (free) for remote access — separate accounts, shared device
+
+### Monthly Cost for Dr. D
+- Patient Gain: $99
+- Anthropic (Claude Code): ~$20
+- OpenAI (OpenClaw): ~$20
+- Google Workspace: already purchased
+- Tailscale, GitHub, Netlify: free
+- **Total: ~$139/mo**
+
+### Next Steps
+- [ ] Send email to Dr. D requesting pre-meeting info
+- [ ] Get domain registrar access and do DNS changes 24-48h before meeting
+- [ ] Pre-build OpenClaw skills on Scott's instance (lead intake, appointment manager, patient contacts, secure upload trigger, recall/follow-up, daily briefing)
+- [ ] Download all installers to USB drive
+- [ ] Pre-pull OpenClaw Docker image
+- [ ] Schedule the 6-hour meeting
+- [ ] Get Dr. D's high-res headshot
+
+### Open Questions (Need Dr. D's Input)
+- Email address format preference
+- Domain registrar login
+- GitHub account (existing or create new?)
+- Mac Studio specs and current state
+- Preferred notification channel (email only? Telegram? SMS?)
+- Calendar — anything to migrate?

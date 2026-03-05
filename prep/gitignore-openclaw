@@ -1,0 +1,48 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Environment and credentials - NEVER commit these
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+credentials.json
+secrets.*
+**/credentials/
+**/secrets/
+
+# Docker volumes and data
+docker-volumes/
+data/
+*.sqlite
+*.db
+
+# Logs
+logs/
+*.log
+
+# Node modules (if any skills use npm)
+node_modules/
+
+# Python virtual environments
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# OpenClaw runtime data
+.openclaw/cache/
+.openclaw/tmp/
