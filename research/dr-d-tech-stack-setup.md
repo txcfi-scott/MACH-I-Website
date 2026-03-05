@@ -13,7 +13,7 @@ This document covers the end-to-end setup of a lightweight, HIPAA-aware practice
 
 The FaceTime call is approximately 2 hours total, structured as four steps. Eddie's active involvement is needed only for Tailscale setup (~10 min), a few GUI approvals during remote installation (~5 min of attention), and account/credential work (~30 min). Scott (and Claude Code) handle all the technical installation and configuration remotely via SSH once Tailscale is up.
 
-The stack covers: a self-hosted OpenClaw instance for CRM and workflow automation, Google Workspace for email and calendar with a custom domain (Eddie has already subscribed; domain email setup is likely not yet complete), Patient Gain for HIPAA-compliant secure file transfers, Claude Code for website self-service editing, and GitHub for version control and remote support. Eddie has two websites/domains — his current site and the new MACH-I site (machaerospacecardiology.com) — and we'll be setting up both.
+The stack covers: a self-hosted OpenClaw instance for CRM and workflow automation, Google Workspace for email and calendar with a custom domain (Eddie has already subscribed; domain email setup is likely not yet complete), Patient Gain for HIPAA-compliant secure file transfers, Claude Code for website self-service editing, and GitHub for version control and remote support. Eddie has two websites/domains — his current site (medicalaerospacecardiology.com, on Wix, expires Sep 2026) and the new MACH-I site (mach1cardiology.com, registered today via Squarespace with Google DNS) — and we'll be setting up both. The new domain is the primary; the old domain needs to redirect to it.
 
 The MACH-I website (already live on Netlify) will feed patient intake forms directly into OpenClaw, triggering automated confirmation emails, calendar holds, and follow-up workflows. Dr. D will be able to update his own website using Claude Code, with all changes automatically version-controlled in GitHub so Scott can monitor and help remotely. When the call ends, Dr. D will have a fully operational system he can manage without ongoing technical support for routine operations.
 
@@ -83,7 +83,10 @@ Once Scott has SSH access (after Step 1), he deploys files to Dr. D's Mac Studio
 
 ### Domain and DNS
 
-- [ ] Confirm Dr. D's domain registrar for **both** domains — his current site and machaerospacecardiology.com (GoDaddy, Namecheap, Google Domains, Squarespace, etc.). Get login access before the call or confirm Dr. D can log in during Step 3.
+- [ ] Confirm Dr. D's domain registrar access for **both** domains:
+  - **mach1cardiology.com** — registered today via **Squarespace Domains**; DNS is already on **Google nameservers**. This is the primary domain. Get Squarespace login before the call.
+  - **medicalaerospacecardiology.com** — existing domain on **Wix**, expires Sep 2026. Needs to redirect to mach1cardiology.com. Configure a redirect either via DNS (CNAME/A record pointing to the new site) or via Wix's domain redirect setting. Confirm with Eddie which approach he prefers — Wix redirect setting is simplest if he still wants to keep the domain managed through Wix.
+  - Add to meeting tasks: configure redirect from medicalaerospacecardiology.com → mach1cardiology.com.
 - [ ] Identify the correct DNS zone for each domain — both domains may already have Netlify nameservers or A records for their websites. Google Workspace MX records need to coexist with existing website DNS, not replace it.
 - [ ] Pre-write the exact DNS records to add for Google Workspace:
   - MX records (Google provides 5 priority-tiered MX records pointing to aspmx.l.google.com and alternates)
@@ -656,7 +659,10 @@ The following need answers before the call can be finalized. Ideal to resolve at
 
 1. **Email address format:** What address does Dr. D want? (See options in Pre-Meeting Prep.) Does he want a single address or separate addresses for patient contact vs. administrative use?
 
-2. **Domain registrar access:** What registrar holds the DNS for each of Dr. D's two domains (his current site and machaerospacecardiology.com)? Does he have login credentials, or does someone else manage them? This is critical — without registrar access, MX records cannot be added and email won't work. Need access a few days before the call so DNS changes have time to propagate. If Eddie hasn't provided access by call time, DNS changes will happen during Step 3.
+2. **Domain registrar access:**
+   - **mach1cardiology.com** — registered via Squarespace Domains, DNS already on Google nameservers. This is the primary domain for the website and email (e.g., eddie@mach1cardiology.com or whatever format he confirms). Need Squarespace login before the call to add Google Workspace MX/SPF/DKIM/DMARC records. DNS propagation typically fast since it's already on Google nameservers.
+   - **medicalaerospacecardiology.com** — on Wix, expires Sep 2026. Needs to redirect to mach1cardiology.com. Simplest approach: use Wix's built-in domain redirect setting (no DNS changes needed). Alternative: change DNS records to point to the new site. Confirm with Eddie. Need Wix login during Step 3 to configure the redirect.
+   - This is critical — without registrar access, MX records cannot be added and email won't work. Need Squarespace access a few days before the call so DNS changes have time to propagate.
 
 3. **Mac Studio status:** Is Docker Desktop already installed? What macOS version is it running? Has the Mac Studio received recent updates, or are there pending updates that might require a restart during the call? Ask Eddie to run updates and restart the day before.
 

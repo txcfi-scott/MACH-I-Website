@@ -12,9 +12,14 @@ Before we get started, I just need a few things from you. Nothing technical on y
 
 **The one thing I need a couple days early:**
 
-Your domain registrar login — this is wherever you bought your website address (machaerospacecardiology.com). Common ones are GoDaddy, Namecheap, or Google Domains. I need to update a setting so your custom email works, and that change takes 24–48 hours to kick in. If you can send me the login info a day or two before we talk, everything will be ready when we get started.
+I saw you grabbed mach1cardiology.com — great choice! Just want to confirm a couple of things before we get started:
 
-Also let me know: what email address(es) do you want on your domain? For example, eddie@machaerospacecardiology.com, dr.davenport@, or something like info@ for general inquiries. You can have more than one — totally up to you.
+- Is mach1cardiology.com your primary domain for both the website and email? (e.g., eddie@mach1cardiology.com or something along those lines)
+- Do you want your existing site at medicalaerospacecardiology.com to point/redirect to the new site at mach1cardiology.com? That way anyone who has the old address still ends up in the right place.
+
+Also, your domain registrar login — you registered mach1cardiology.com through Squarespace, so that's the login I'll need. I need to update a setting so your custom email works, and that change takes 24–48 hours to kick in. If you can send me the login info a day or two before we talk, everything will be ready when we get started.
+
+Also let me know: what email address(es) do you want on your domain? For example, eddie@mach1cardiology.com, dr.davenport@, or something like info@ for general inquiries. You can have more than one — totally up to you.
 
 ---
 
