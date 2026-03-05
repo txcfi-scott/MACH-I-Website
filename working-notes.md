@@ -147,3 +147,34 @@ The Mac Studio setup plan (Sessions 1-3) remains valid and is tracked in `setup/
 - Mac Studio specs and current state
 - Preferred notification channel (email only? Telegram? SMS?)
 - Calendar — anything to migrate?
+
+## Checkpoint — 2026-03-05 14:09:16
+
+**Branch:** main
+**Uncommitted changes:** None (all pushed to GitHub)
+**Session work:**
+- Scoped complete tech stack for Dr. D's medical practice (Google Workspace, OpenClaw, Patient Gain, Claude Code, GitHub, Tailscale, Netlify)
+- Created comprehensive FaceTime meeting runbook (research/dr-d-tech-stack-setup.md) — 4-step structure: Tailscale → Scott SSHs + installs → accounts → training (~2 hours)
+- Built complete OpenClaw "Mach 1 Front Desk" agent (prep/openclaw/) — 25 files: workspace, templates, hooks, cron jobs, config
+- Created all prep materials (prep/) — CLAUDE.md guardrails, auto-push launchd, .gitignore files, installer download script, email draft to Eddie
+- Confirmed mach1cardiology.com registered by Dr. D today (Squarespace, Google DNS)
+- Verified Tailscale running on Scott's machine (100.65.205.84)
+- Saved end-of-session git commit rule to project memory
+
+**Next step:** Send email to Eddie (prep/email-to-dr-d-meeting-prep.md — HTML preview at prep/email-preview.html). Once he replies with Squarespace login, do DNS changes 24-48h before the FaceTime call.
+
+**Blockers:**
+- Need Eddie's Squarespace domain registrar login (for DNS/MX changes)
+- Need Eddie to confirm mach1cardiology.com as primary domain + email
+- Need Eddie to confirm redirect of medicalaerospacecardiology.com to new site
+- Need to schedule the FaceTime call (~2 hours)
+
+**Pre-call prep still TODO:**
+- Run download-installers.sh to pre-download Docker/Tailscale/Node.js
+- Pre-pull OpenClaw Docker image (docker save)
+- DNS changes once registrar access obtained
+- Test OpenClaw agent on Scott's instance before deploying to Eddie's
+
+**Notes:** Meeting is via FaceTime, not in-person. Eddie installs Tailscale, Scott SSHs in and does everything else. OpenClaw uses OpenAI (gpt-4o), not Anthropic. Gmail bridge hook and Netlify webhook hook are skeleton/TODO — need testing. No PHI in email/calendar — Patient Gain handles HIPAA file transfers.
+
+--- Checkpoint saved before context clear ---
